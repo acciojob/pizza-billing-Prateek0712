@@ -29,7 +29,7 @@ public class Pizza {
         // your code goes here
         if(cheese==false)
         {
-            price+=80
+            price+=80;
             cheese=true;
         }
     }
