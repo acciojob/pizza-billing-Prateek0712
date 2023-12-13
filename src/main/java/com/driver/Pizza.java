@@ -22,7 +22,8 @@ public class Pizza {
         {
             price=400;
         }
-        bill+="Base Price Of The Pizza: "+price+"\n";
+
+        this.bill="Base Price Of The Pizza: "+price+"\n";
         // your code goes here
     }
 
@@ -35,7 +36,7 @@ public class Pizza {
         if(cheeseF==false)
         {
             cheeseF=true;
-            price+=70;
+            price+=80;
             bill+="Extra Cheese Added: "+cheese+"\n";
         }
     }
@@ -44,7 +45,7 @@ public class Pizza {
         // your code goes here
         if(toppingF==false)
         {
-            cheeseF=true;
+            toppingF=true;
             int tempTop= isVeg ? vegTopping : nonVegTopping;
             price+=tempTop;
             bill+="Extra Toppings Added: "+tempTop+"\n";
