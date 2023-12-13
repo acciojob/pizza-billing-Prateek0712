@@ -5,9 +5,19 @@ public class Pizza {
     private int price;
     private Boolean isVeg;
     private String bill;
+    private boolean topping=false;
+    private boolean cheese=false;
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
+        if(isVeg)
+        {
+            this.price=300;
+        }
+        else
+        {
+            this.price=400;
+        }
         // your code goes here
     }
 
@@ -17,18 +27,36 @@ public class Pizza {
 
     public void addExtraCheese(){
         // your code goes here
+        if(cheese==false)
+        {
+            price+=80
+            cheese=true;
+        }
     }
 
     public void addExtraToppings(){
         // your code goes here
+        if(topping==false)
+        {
+            if(isVeg)
+            {
+                price+=70;
+            }
+            else
+            {
+                price+=120;
+            }
+            topping=true;
+        }
     }
 
     public void addTakeaway(){
         // your code goes here
+        price+=20;
     }
 
     public String getBill(){
-        // your code goes here
+        bill=price+"";
         return this.bill;
     }
 }
