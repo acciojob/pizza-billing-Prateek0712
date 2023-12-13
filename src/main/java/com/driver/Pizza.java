@@ -35,6 +35,7 @@ public class Pizza {
         if(cheeseF==false)
         {
             cheeseF=true;
+            price+=70;
             bill+="Extra Cheese Added: "+cheese+"\n";
         }
     }
@@ -45,6 +46,7 @@ public class Pizza {
         {
             cheeseF=true;
             int tempTop= isVeg ? vegTopping : nonVegTopping;
+            price+=tempTop;
             bill+="Extra Toppings Added: "+tempTop+"\n";
         }
     }
@@ -54,17 +56,13 @@ public class Pizza {
         if(bagF==false)
         {
             bagF=true;
+            price+=bag;
             bill+="Paperbag Added: "+bag+"\n";
         }
     }
 
     public String getBill(){
-        int FinalCost=0;
-        FinalCost+= price;
-        FinalCost+= cheeseF ?80 : 0;
-        FinalCost+= toppingF && isVeg ? 70 : 120;
-        FinalCost+= bagF ? 20 : 0;
-        bill+="Total Price: "+FinalCost+"\n";
+        bill+="Total Price: "+price+"\n";
         return bill;
     }
 }
