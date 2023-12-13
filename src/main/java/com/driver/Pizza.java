@@ -5,19 +5,24 @@ public class Pizza {
     private int price;
     private Boolean isVeg;
     private String bill;
-    private boolean topping=false;
-    private boolean cheese=false;
-
+    private final int  cheese=80;
+    private final int vegTopping=70;
+    private final int nonVegTopping=120;
+    private final int bag=20;
+    private boolean cheeseF=false;
+    private boolean toppingF=false;
+    private boolean bagF=false;
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         if(isVeg)
         {
-            this.price=300;
+            price=300;
         }
         else
         {
-            this.price=400;
+            price=400;
         }
+        bill+="Base Price Of The Pizza: "+price+"\n";
         // your code goes here
     }
 
@@ -27,36 +32,39 @@ public class Pizza {
 
     public void addExtraCheese(){
         // your code goes here
-        if(cheese==false)
+        if(cheeseF==false)
         {
-            price+=80;
-            cheese=true;
+            cheeseF=true;
+            bill+="Extra Cheese Added: "+cheese+"\n";
         }
     }
 
-    public void addExtraToppings(){
+    public void addExtraToppings() {
         // your code goes here
-        if(topping==false)
+        if(toppingF==false)
         {
-            if(isVeg)
-            {
-                price+=70;
-            }
-            else
-            {
-                price+=120;
-            }
-            topping=true;
+            cheeseF=true;
+            int tempTop= isVeg ? vegTopping : nonVegTopping;
+            bill+="Extra Toppings Added: "+tempTop+"\n";
         }
     }
 
     public void addTakeaway(){
         // your code goes here
-        price+=20;
+        if(bagF==false)
+        {
+            bagF=true;
+            bill+="Paperbag Added: "+bag+"\n";
+        }
     }
 
     public String getBill(){
-        bill=price+"";
-        return this.bill;
+        int FinalCost=0;
+        FinalCost+= price;
+        FinalCost+= cheeseF ?80 : 0;
+        FinalCost+= toppingF && isVeg ? 70 : 120;
+        FinalCost+= bagF ? 20 : 0;
+        bill+="Total Price: "+FinalCost+"\n";
+        return bill;
     }
 }
